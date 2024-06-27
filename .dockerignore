@@ -1,0 +1,11 @@
+.vscode
+node_modules
+tests
+.dockerignore
+.editorconfig
+.eslintrc.cjs
+.prettierrc
+docker-compose.yml
+Dockerfile
+jest.unit.config.js
+README.md

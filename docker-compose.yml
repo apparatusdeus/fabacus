@@ -1,0 +1,38 @@
+services:
+  service:
+    build:
+      context: .
+      target: development
+    image: reservation
+#    volumes:
+#      - ./:/opt/service
+#      - /opt/service/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - fabacus
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: mongo:7
+    volumes:
+      - data:/data/db
+    ports:
+      - "27018:27017"
+    networks:
+      - fabacus
+
+  redis:
+    image: redis:7
+    ports:
+      - "6380:6379"
+    networks:
+      - fabacus
+
+networks:
+  fabacus:
+
+volumes:
+  data:
